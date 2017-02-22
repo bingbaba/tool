@@ -1,9 +1,9 @@
 package color
 
 type HSV struct {
-	H uint8 // [0, 360]
-	S uint8 // [0, 100]
-	V uint8 // [0, 100]
+	H uint // [0, 360]
+	S uint // [0, 100]
+	V uint // [0, 100]
 }
 
 func (hsb *HSV) RGBA() (uint32, uint32, uint32, uint32) {
@@ -52,9 +52,9 @@ func (hsb *HSV) RGBA() (uint32, uint32, uint32, uint32) {
 		break
 	}
 
-	rgba_r := uint32(r * 255)
-	rgba_g := uint32(g * 255)
-	rgba_b := uint32(b * 255)
+	rgba_r := uint32(r * 255.0)
+	rgba_g := uint32(g * 255.0)
+	rgba_b := uint32(b * 255.0)
 	rgba_a := 100 - uint32(hsb.V)
 
 	return rgba_r | (rgba_r << 8),
